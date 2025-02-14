@@ -183,9 +183,19 @@ const selectAnswer = (e) => {
 
 const showScore = () => {
     resetState();
-    questionEl.innerHTML = `You scored ${score} out of 5`;
     nextBtn.innerHTML = "Play Again";
     nextBtn.style.display = "block";
+    progressBar.style.display = "none";
+    document.querySelector(".timer-container").style.display = "none";
+
+    if (score === 5){
+        questionEl.innerHTML = `You scored ${score} out of 5 🎉🎉`;
+    } else if (score > 2 && score < 5) {
+        questionEl.innerHTML = `You scored ${score} out of 5 😃`;
+    } else {
+        questionEl.innerHTML = `You scored ${score} out of 5 😭`;
+    };
+    
 };
 
 nextBtn.addEventListener("click", () => {
@@ -194,9 +204,16 @@ nextBtn.addEventListener("click", () => {
         questionCount++;
         showQuestion();
     } else {
-        startQuiz();
+        resetState();
+        document.querySelector(".app").style.display = "none";
+        document.querySelector(".welcome").style.display = "block";
+        
+        currentQuestionIndex = 0;
+        questionCount = 0;
+        score = 0;
     }
 });
+
 
 startBtn.addEventListener("click", () => {
     document.querySelector(".welcome").style.display = "none";

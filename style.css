@@ -47,6 +47,10 @@ body {
     font-weight: 600;
 }
 
+.welcome p {
+    margin-top: 20px;
+}
+
 .btn {
     background: #fff;
     color: #222;
