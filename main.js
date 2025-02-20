@@ -211,6 +211,9 @@ nextBtn.addEventListener("click", () => {
         currentQuestionIndex = 0;
         questionCount = 0;
         score = 0;
+
+        progressBar.style.display = "block";
+        document.querySelector(".timer-container").style.display = "block";
     }
 });
 
